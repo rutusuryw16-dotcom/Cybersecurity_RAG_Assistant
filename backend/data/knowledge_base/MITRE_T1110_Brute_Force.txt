@@ -1,0 +1,22 @@
+MITRE ATT&CK Technique T1110: Brute Force
+Tactic: Credential Access (TA0006)
+Sub-techniques:
+- T1110.001: Password Guessing (systematically guessing passwords for an account)
+- T1110.002: Password Cracking
+- T1110.003: Password Spraying (using a few common passwords against many accounts)
+- T1110.004: Credential Stuffing (using stolen credentials from other breaches)
+
+Description:
+Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained. Repeated authentication failures within a brief duration from a common IP address indicate automated password guessing or credential stuffing tools (e.g. Hydra, Medusa).
+
+Detection Guidelines:
+1. Monitor authentication logs (such as /var/log/auth.log or Windows Event ID 4625).
+2. Establish thresholds for failed logon attempts (e.g., more than 5 failures within 2 minutes).
+3. Check for geographic or network velocity anomalies.
+4. Most crucially, verify if a sequence of failed authentications is immediately followed by an Event ID 4624 (Successful Logon) or SSH 'Accepted password', which confirms the attack successfully breached the credential.
+
+Mitigation:
+- M1036 Account Use Policies: Enforce account lockout thresholds (e.g. 5 failed attempts locks for 15 minutes).
+- M1032 Multi-Factor Authentication: Require MFA on all externally exposed endpoints.
+- M1018 User Account Management: Disable root and default administrator logins over SSH.
+- M1037 Filter Network Traffic: Implement rate limiting and automatic IP banning with Fail2Ban or cloud security groups.

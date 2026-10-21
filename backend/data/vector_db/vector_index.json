@@ -1,0 +1,653 @@
+{
+  "count": 51,
+  "documents": {
+    "MITRE_T1110_Brute_Force.txt_chunk_0_ff62a3": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_0_ff62a3",
+      "content": "MITRE ATT&CK Technique T1110: Brute Force\nTactic: Credential Access (TA0006)\nSub-techniques:\n- T1110.001: Password Guessing (systematically guessing passwords for an account)\n- T1110.002: Password Cracking\n- T1110.003: Password Spraying (using a few common passwords against many accounts)\n- T1110.004: Credential Stuffing (using stolen credentials from other breaches)",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_1_6a6e30": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_1_6a6e30",
+      "content": "tial Stuffing (using stolen credentials from other breaches)\n\nDescription:\nAdversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained. Repeated authentication failures within a brief duration from a common IP address indicate automated password guessing or credential stuffing tools (e.g. Hydra, Medusa).",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_2_737e53": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_2_737e53",
+      "content": " guessing or credential stuffing tools (e.g. Hydra, Medusa).\n\nDetection Guidelines:\n1. Monitor authentication logs (such as /var/log/auth.log or Windows Event ID 4625).\n2. Establish thresholds for failed logon attempts (e.g., more than 5 failures within 2 minutes).\n3. Check for geographic or network velocity anomalies.\n4. Most crucially, verify if a sequence of failed authentications is immediately followed by an Event ID 4624 (Successful Logon) or SSH 'Accepted password', which confirms the attack successfully breached the credential.",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_3_0e439f": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_3_0e439f",
+      "content": "ch confirms the attack successfully breached the credential.\n\nMitigation:\n- M1036 Account Use Policies: Enforce account lockout thresholds (e.g. 5 failed attempts locks for 15 minutes).\n- M1032 Multi-Factor Authentication: Require MFA on all externally exposed endpoints.\n- M1018 User Account Management: Disable root and default administrator logins over SSH.\n- M1037 Filter Network Traffic: Implement rate limiting and automatic IP banning with Fail2Ban or cloud security groups.",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_0_5f01d1": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_0_5f01d1",
+      "content": "NIST Special Publication 800-61 Revision 2: Computer Security Incident Handling Guide\nPhase 1: Preparation\nOrganizations must maintain log management infrastructures, forensic toolkits, and clear incident response communication channels.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_1_9244d4": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_1_9244d4",
+      "content": "oolkits, and clear incident response communication channels.\n\nPhase 2: Detection and Analysis\nSigns of an Incident:\n- Precursors: Network port scans, vulnerability scans, audit log alerts.\n- Indicators: High volume of failed authentications, unexpected file modifications, unauthorized privilege escalation, anomalous outbound connections.\nInvestigation Steps:\n1. Identify the scope of compromised accounts and hosts.\n2. Determine the attack vector (brute-force, unpatched web vulnerability, compromised credential).\n3. Validate evidence integrity by preserving original timestamps and cryptographic hashes.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_2_f6fcd1": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_2_f6fcd1",
+      "content": " by preserving original timestamps and cryptographic hashes.\n\nPhase 3: Containment, Eradication, and Recovery\n1. Short-Term Containment: Isolate the affected subnet or null-route malicious source IP addresses.\n2. Eradication: Terminate unauthorized background processes, delete uploaded web shells, revoke compromised SSH keys and API tokens.\n3. Recovery: Restore affected systems from clean backups, reset user credentials, and restore connectivity under enhanced monitoring.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_3_d835a4": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_3_d835a4",
+      "content": "entials, and restore connectivity under enhanced monitoring.\n\nPhase 4: Post-Incident Activity (Lessons Learned)\nConduct post-mortem analysis within two weeks. Update intrusion detection signatures and rules to prevent recurrence.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_0_4f6d6e": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_0_4f6d6e",
+      "content": "MITRE ATT&CK Technique T1548: Abuse Elevation Control Mechanism\nTactic: Privilege Escalation (TA0004), Defense Evasion (TA0005)\nSub-technique: T1548.003 - Sudo and Sudo Caching",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_1_0ba467": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_1_0ba467",
+      "content": "on (TA0005)\nSub-technique: T1548.003 - Sudo and Sudo Caching\n\nDescription:\nAdversaries may execute commands with elevated root privileges using sudo without requiring authorization, or exploit misconfigurations in the /etc/sudoers file (such as NOPASSWD or dangerous binaries like vi, bash, find, tar).",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_2_4eb967": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_2_4eb967",
+      "content": "as NOPASSWD or dangerous binaries like vi, bash, find, tar).\n\nDetection:\n1. Audit sudo execution events in /var/log/auth.log or /var/log/secure.\n2. Flag instances where non-administrative accounts execute interactive shells (/bin/bash, /bin/sh).\n3. Review auditd rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_3_04e673": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_3_04e673",
+      "content": "rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.\n\nMitigation:\n- Adhere strictly to the Principle of Least Privilege (PoLP).\n- Restrict sudoers permissions to specific, necessary utility arguments instead of ALL=(ALL:ALL) ALL.\n- Maintain immutable audit logging for root-level session executions.",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "auth_log_chunk_0": {
+      "id": "auth_log_chunk_0",
+      "content": "[Oct 20 13:06:48] Oct 20 13:06:48 cloud-soc-host sshd[14201]: Failed password=***REDACTED*** invalid user admin from 192.0.2.10 port 40001 ssh2\n[Oct 20 13:06:50] Oct 20 13:06:50 cloud-soc-host sshd[14202]: Failed password=***REDACTED*** invalid user ubuntu from 192.0.2.10 port 40002 ssh2\n[Oct 20 13:06:52] Oct 20 13:06:52 cloud-soc-host sshd[14203]: Failed password=***REDACTED*** invalid user test from 192.0.2.10 port 40003 ssh2\n[Oct 20 13:06:54] Oct 20 13:06:54 cloud-soc-host sshd[14204]: Failed password=***REDACTED*** invalid user deploy from 192.0.2.10 port 40004 ssh2\n[Oct 20 13:06:57] Oct 20 13:06:57 cloud-soc-host sshd[14205]: Failed password=***REDACTED*** invalid user guest from 192.0.2.10 port 40005 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 0,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "1-5"
+      }
+    },
+    "auth_log_chunk_1": {
+      "id": "auth_log_chunk_1",
+      "content": "[Oct 20 13:06:59] Oct 20 13:06:59 cloud-soc-host sshd[14206]: Failed password=***REDACTED*** invalid user oracle from 192.0.2.10 port 40006 ssh2\n[Oct 20 13:07:01] Oct 20 13:07:01 cloud-soc-host sshd[14207]: Failed password=***REDACTED*** invalid user postgres from 192.0.2.10 port 40007 ssh2\n[Oct 20 13:07:03] Oct 20 13:07:03 cloud-soc-host sshd[14208]: Failed password=***REDACTED*** invalid user root from 192.0.2.10 port 40008 ssh2\n[Oct 20 13:07:05] Oct 20 13:07:05 cloud-soc-host sshd[14209]: Failed password=***REDACTED*** invalid user admin from 192.0.2.10 port 40009 ssh2\n[Oct 20 13:07:08] Oct 20 13:07:08 cloud-soc-host sshd[14210]: Failed password=***REDACTED*** invalid user ubuntu from 192.0.2.10 port 40010 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 1,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "6-10"
+      }
+    },
+    "auth_log_chunk_2": {
+      "id": "auth_log_chunk_2",
+      "content": "[Oct 20 13:07:10] Oct 20 13:07:10 cloud-soc-host sshd[14211]: Failed password=***REDACTED*** invalid user test from 192.0.2.10 port 40011 ssh2\n[Oct 20 13:07:12] Oct 20 13:07:12 cloud-soc-host sshd[14212]: Failed password=***REDACTED*** invalid user deploy from 192.0.2.10 port 40012 ssh2\n[Oct 20 13:07:14] Oct 20 13:07:14 cloud-soc-host sshd[14213]: Failed password=***REDACTED*** invalid user guest from 192.0.2.10 port 40013 ssh2\n[Oct 20 13:07:16] Oct 20 13:07:16 cloud-soc-host sshd[14214]: Failed password=***REDACTED*** invalid user oracle from 192.0.2.10 port 40014 ssh2\n[Oct 20 13:07:19] Oct 20 13:07:19 cloud-soc-host sshd[14215]: Failed password=***REDACTED*** invalid user postgres from 192.0.2.10 port 40015 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 2,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "11-15"
+      }
+    },
+    "auth_log_chunk_3": {
+      "id": "auth_log_chunk_3",
+      "content": "[Oct 20 13:07:21] Oct 20 13:07:21 cloud-soc-host sshd[14216]: Failed password=***REDACTED*** invalid user root from 192.0.2.10 port 40016 ssh2\n[Oct 20 13:07:23] Oct 20 13:07:23 cloud-soc-host sshd[14217]: Failed password=***REDACTED*** invalid user admin from 192.0.2.10 port 40017 ssh2\n[Oct 20 13:07:25] Oct 20 13:07:25 cloud-soc-host sshd[14218]: Failed password=***REDACTED*** invalid user ubuntu from 192.0.2.10 port 40018 ssh2\n[Oct 20 13:07:27] Oct 20 13:07:27 cloud-soc-host sshd[14219]: Failed password=***REDACTED*** invalid user test from 192.0.2.10 port 40019 ssh2\n[Oct 20 13:07:30] Oct 20 13:07:30 cloud-soc-host sshd[14220]: Failed password=***REDACTED*** invalid user deploy from 192.0.2.10 port 40020 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 3,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "16-20"
+      }
+    },
+    "auth_log_chunk_4": {
+      "id": "auth_log_chunk_4",
+      "content": "[Oct 20 13:07:32] Oct 20 13:07:32 cloud-soc-host sshd[14221]: Failed password=***REDACTED*** invalid user guest from 192.0.2.10 port 40021 ssh2\n[Oct 20 13:07:34] Oct 20 13:07:34 cloud-soc-host sshd[14222]: Failed password=***REDACTED*** invalid user oracle from 192.0.2.10 port 40022 ssh2\n[Oct 20 13:07:36] Oct 20 13:07:36 cloud-soc-host sshd[14223]: Failed password=***REDACTED*** invalid user postgres from 192.0.2.10 port 40023 ssh2\n[Oct 20 13:07:38] Oct 20 13:07:38 cloud-soc-host sshd[14224]: Failed password=***REDACTED*** invalid user root from 192.0.2.10 port 40024 ssh2\n[Oct 20 13:07:41] Oct 20 13:07:41 cloud-soc-host sshd[14225]: Failed password=***REDACTED*** invalid user admin from 192.0.2.10 port 40025 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 4,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "21-25"
+      }
+    },
+    "auth_log_chunk_5": {
+      "id": "auth_log_chunk_5",
+      "content": "[Oct 20 13:07:43] Oct 20 13:07:43 cloud-soc-host sshd[14226]: Failed password=***REDACTED*** invalid user ubuntu from 192.0.2.10 port 40026 ssh2\n[Oct 20 13:07:45] Oct 20 13:07:45 cloud-soc-host sshd[14227]: Failed password=***REDACTED*** invalid user test from 192.0.2.10 port 40027 ssh2\n[Oct 20 13:07:47] Oct 20 13:07:47 cloud-soc-host sshd[14228]: Failed password=***REDACTED*** invalid user deploy from 192.0.2.10 port 40028 ssh2\n[Oct 20 13:07:49] Oct 20 13:07:49 cloud-soc-host sshd[14229]: Failed password=***REDACTED*** invalid user guest from 192.0.2.10 port 40029 ssh2\n[Oct 20 13:07:52] Oct 20 13:07:52 cloud-soc-host sshd[14230]: Failed password=***REDACTED*** invalid user oracle from 192.0.2.10 port 40030 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 5,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "26-30"
+      }
+    },
+    "auth_log_chunk_6": {
+      "id": "auth_log_chunk_6",
+      "content": "[Oct 20 13:07:54] Oct 20 13:07:54 cloud-soc-host sshd[14231]: Failed password=***REDACTED*** invalid user postgres from 192.0.2.10 port 40031 ssh2\n[Oct 20 13:07:56] Oct 20 13:07:56 cloud-soc-host sshd[14232]: Failed password=***REDACTED*** invalid user root from 192.0.2.10 port 40032 ssh2\n[Oct 20 13:07:58] Oct 20 13:07:58 cloud-soc-host sshd[14233]: Failed password=***REDACTED*** invalid user admin from 192.0.2.10 port 40033 ssh2\n[Oct 20 13:08:00] Oct 20 13:08:00 cloud-soc-host sshd[14234]: Failed password=***REDACTED*** invalid user ubuntu from 192.0.2.10 port 40034 ssh2\n[Oct 20 13:08:03] Oct 20 13:08:03 cloud-soc-host sshd[14235]: Failed password=***REDACTED*** invalid user test from 192.0.2.10 port 40035 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 6,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "31-35"
+      }
+    },
+    "auth_log_chunk_7": {
+      "id": "auth_log_chunk_7",
+      "content": "[Oct 20 13:08:05] Oct 20 13:08:05 cloud-soc-host sshd[14236]: Failed password=***REDACTED*** invalid user deploy from 192.0.2.10 port 40036 ssh2\n[Oct 20 13:08:07] Oct 20 13:08:07 cloud-soc-host sshd[14237]: Failed password=***REDACTED*** invalid user guest from 192.0.2.10 port 40037 ssh2\n[Oct 20 13:08:09] Oct 20 13:08:09 cloud-soc-host sshd[14238]: Failed password=***REDACTED*** invalid user oracle from 192.0.2.10 port 40038 ssh2\n[Oct 20 13:08:11] Oct 20 13:08:11 cloud-soc-host sshd[14239]: Failed password=***REDACTED*** invalid user postgres from 192.0.2.10 port 40039 ssh2\n[Oct 20 13:08:14] Oct 20 13:08:14 cloud-soc-host sshd[14240]: Failed password=***REDACTED*** invalid user root from 192.0.2.10 port 40040 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 7,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "36-40"
+      }
+    },
+    "auth_log_chunk_8": {
+      "id": "auth_log_chunk_8",
+      "content": "[Oct 20 13:08:16] Oct 20 13:08:16 cloud-soc-host sshd[14241]: Failed password=***REDACTED*** invalid user admin from 192.0.2.10 port 40041 ssh2\n[Oct 20 13:08:18] Oct 20 13:08:18 cloud-soc-host sshd[14242]: Failed password=***REDACTED*** invalid user ubuntu from 192.0.2.10 port 40042 ssh2\n[Oct 20 13:08:20] Oct 20 13:08:20 cloud-soc-host sshd[14243]: Failed password=***REDACTED*** invalid user test from 192.0.2.10 port 40043 ssh2\n[Oct 20 13:08:22] Oct 20 13:08:22 cloud-soc-host sshd[14244]: Failed password=***REDACTED*** invalid user deploy from 192.0.2.10 port 40044 ssh2\n[Oct 20 13:08:25] Oct 20 13:08:25 cloud-soc-host sshd[14245]: Failed password=***REDACTED*** invalid user guest from 192.0.2.10 port 40045 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 8,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "41-45"
+      }
+    },
+    "auth_log_chunk_9": {
+      "id": "auth_log_chunk_9",
+      "content": "[Oct 20 13:08:27] Oct 20 13:08:27 cloud-soc-host sshd[14246]: Failed password=***REDACTED*** invalid user oracle from 192.0.2.10 port 40046 ssh2\n[Oct 20 13:08:29] Oct 20 13:08:29 cloud-soc-host sshd[14247]: Failed password=***REDACTED*** invalid user postgres from 192.0.2.10 port 40047 ssh2\n[Oct 20 13:08:31] Oct 20 13:08:31 cloud-soc-host sshd[14248]: Failed password=***REDACTED*** invalid user root from 192.0.2.10 port 40048 ssh2\n[Oct 20 13:08:33] Oct 20 13:08:33 cloud-soc-host sshd[14251]: Failed password=***REDACTED*** deploy from 192.0.2.10 port 40050 ssh2\n[Oct 20 13:08:35] Oct 20 13:08:35 cloud-soc-host sshd[14252]: Failed password=***REDACTED*** deploy from 192.0.2.10 port 40051 ssh2",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 9,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "46-50"
+      }
+    },
+    "auth_log_chunk_10": {
+      "id": "auth_log_chunk_10",
+      "content": "[Oct 20 13:08:40] Oct 20 13:08:40 cloud-soc-host sshd[14253]: Accepted password=***REDACTED*** deploy from 192.0.2.10 port 40052 ssh2\n[Oct 20 13:08:40] Oct 20 13:08:40 cloud-soc-host systemd-logind[910]: New session 42 of user deploy.\n[Oct 20 13:08:52] Oct 20 13:08:52 cloud-soc-host sudo:   deploy : TTY=pts/1 ; PWD=***REDACTED*** ; USER=root ; COMMAND=/bin/bash\n[Oct 20 13:08:52] Oct 20 13:08:52 cloud-soc-host sudo: pam_unix(sudo:session): session opened for user root(uid=0) by deploy(uid=1001)",
+      "source_file": "auth_bruteforce_incident.log",
+      "chunk_index": 10,
+      "category": "logs",
+      "metadata": {
+        "source": "auth_bruteforce_incident.log",
+        "category": "logs",
+        "lines": "51-54"
+      }
+    },
+    "web_log_chunk_0": {
+      "id": "web_log_chunk_0",
+      "content": "[2026-10-20 13:11:46] Method: 403 from 203.0.113.88 - Status: INFO\nPayload: timestamp: 2026-10-20 13:11:46 | source_ip: 203.0.113.88 | dest_ip: 10.0.0.15 | user: anonymous | method: GET | uri: /api/products?id=1' UNION SELECT 1 | status_code: username | user_agent: password=***REDACTED*** users-- | action: 403 | None: ['sqlmap/1.6', 'SQL_INJECTION']",
+      "source_file": "web_exploitation_attacks.csv",
+      "chunk_index": 0,
+      "category": "logs",
+      "metadata": {
+        "source": "web_exploitation_attacks.csv",
+        "category": "logs",
+        "line": 2
+      }
+    },
+    "web_log_chunk_1": {
+      "id": "web_log_chunk_1",
+      "content": "[2026-10-20 13:12:46] Method: COMMAND_INJECTION from 203.0.113.88 - Status: INFO\nPayload: timestamp: 2026-10-20 13:12:46 | source_ip: 203.0.113.88 | dest_ip: 10.0.0.15 | user: anonymous | method: POST | uri: /api/v1/tools/ping?target=127.0.0.1; cat /etc/passwd=***REDACTED*** status_code: 500 | user_agent: Mozilla/5.0 | action: COMMAND_INJECTION",
+      "source_file": "web_exploitation_attacks.csv",
+      "chunk_index": 1,
+      "category": "logs",
+      "metadata": {
+        "source": "web_exploitation_attacks.csv",
+        "category": "logs",
+        "line": 3
+      }
+    },
+    "web_log_chunk_2": {
+      "id": "web_log_chunk_2",
+      "content": "[2026-10-20 13:13:46] Method: PATH_TRAVERSAL from 203.0.113.88 - Status: INFO\nPayload: timestamp: 2026-10-20 13:13:46 | source_ip: 203.0.113.88 | dest_ip: 10.0.0.15 | user: anonymous | method: GET | uri: /static/../../../../etc/shadow | status_code: 403 | user_agent: curl/7.88.1 | action: PATH_TRAVERSAL",
+      "source_file": "web_exploitation_attacks.csv",
+      "chunk_index": 2,
+      "category": "logs",
+      "metadata": {
+        "source": "web_exploitation_attacks.csv",
+        "category": "logs",
+        "line": 4
+      }
+    },
+    "web_log_chunk_3": {
+      "id": "web_log_chunk_3",
+      "content": "[2026-10-20 13:14:46] Method: WEBSHELL_UPLOAD from 203.0.113.88 - Status: INFO\nPayload: timestamp: 2026-10-20 13:14:46 | source_ip: 203.0.113.88 | dest_ip: 10.0.0.15 | user: anonymous | method: POST | uri: /upload/shell.php | status_code: 201 | user_agent: python-requests/2.31 | action: WEBSHELL_UPLOAD",
+      "source_file": "web_exploitation_attacks.csv",
+      "chunk_index": 3,
+      "category": "logs",
+      "metadata": {
+        "source": "web_exploitation_attacks.csv",
+        "category": "logs",
+        "line": 5
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_0_acfa99": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_0_acfa99",
+      "content": "MITRE ATT&CK Technique T1110: Brute Force\nTactic: Credential Access (TA0006)\nSub-techniques:\n- T1110.001: Password Guessing (systematically guessing passwords for an account)\n- T1110.002: Password Cracking\n- T1110.003: Password Spraying (using a few common passwords against many accounts)\n- T1110.004: Credential Stuffing (using stolen credentials from other breaches)",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_1_4bfdf4": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_1_4bfdf4",
+      "content": "tial Stuffing (using stolen credentials from other breaches)\n\nDescription:\nAdversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained. Repeated authentication failures within a brief duration from a common IP address indicate automated password guessing or credential stuffing tools (e.g. Hydra, Medusa).",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_2_14c73c": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_2_14c73c",
+      "content": " guessing or credential stuffing tools (e.g. Hydra, Medusa).\n\nDetection Guidelines:\n1. Monitor authentication logs (such as /var/log/auth.log or Windows Event ID 4625).\n2. Establish thresholds for failed logon attempts (e.g., more than 5 failures within 2 minutes).\n3. Check for geographic or network velocity anomalies.\n4. Most crucially, verify if a sequence of failed authentications is immediately followed by an Event ID 4624 (Successful Logon) or SSH 'Accepted password', which confirms the attack successfully breached the credential.",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_3_7e874a": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_3_7e874a",
+      "content": "ch confirms the attack successfully breached the credential.\n\nMitigation:\n- M1036 Account Use Policies: Enforce account lockout thresholds (e.g. 5 failed attempts locks for 15 minutes).\n- M1032 Multi-Factor Authentication: Require MFA on all externally exposed endpoints.\n- M1018 User Account Management: Disable root and default administrator logins over SSH.\n- M1037 Filter Network Traffic: Implement rate limiting and automatic IP banning with Fail2Ban or cloud security groups.",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_0_01e27f": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_0_01e27f",
+      "content": "NIST Special Publication 800-61 Revision 2: Computer Security Incident Handling Guide\nPhase 1: Preparation\nOrganizations must maintain log management infrastructures, forensic toolkits, and clear incident response communication channels.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_1_6bd7d4": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_1_6bd7d4",
+      "content": "oolkits, and clear incident response communication channels.\n\nPhase 2: Detection and Analysis\nSigns of an Incident:\n- Precursors: Network port scans, vulnerability scans, audit log alerts.\n- Indicators: High volume of failed authentications, unexpected file modifications, unauthorized privilege escalation, anomalous outbound connections.\nInvestigation Steps:\n1. Identify the scope of compromised accounts and hosts.\n2. Determine the attack vector (brute-force, unpatched web vulnerability, compromised credential).\n3. Validate evidence integrity by preserving original timestamps and cryptographic hashes.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_2_d06938": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_2_d06938",
+      "content": " by preserving original timestamps and cryptographic hashes.\n\nPhase 3: Containment, Eradication, and Recovery\n1. Short-Term Containment: Isolate the affected subnet or null-route malicious source IP addresses.\n2. Eradication: Terminate unauthorized background processes, delete uploaded web shells, revoke compromised SSH keys and API tokens.\n3. Recovery: Restore affected systems from clean backups, reset user credentials, and restore connectivity under enhanced monitoring.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_3_636e1b": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_3_636e1b",
+      "content": "entials, and restore connectivity under enhanced monitoring.\n\nPhase 4: Post-Incident Activity (Lessons Learned)\nConduct post-mortem analysis within two weeks. Update intrusion detection signatures and rules to prevent recurrence.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_0_f7c188": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_0_f7c188",
+      "content": "MITRE ATT&CK Technique T1548: Abuse Elevation Control Mechanism\nTactic: Privilege Escalation (TA0004), Defense Evasion (TA0005)\nSub-technique: T1548.003 - Sudo and Sudo Caching",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_1_85dbdb": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_1_85dbdb",
+      "content": "on (TA0005)\nSub-technique: T1548.003 - Sudo and Sudo Caching\n\nDescription:\nAdversaries may execute commands with elevated root privileges using sudo without requiring authorization, or exploit misconfigurations in the /etc/sudoers file (such as NOPASSWD or dangerous binaries like vi, bash, find, tar).",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_2_6a1948": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_2_6a1948",
+      "content": "as NOPASSWD or dangerous binaries like vi, bash, find, tar).\n\nDetection:\n1. Audit sudo execution events in /var/log/auth.log or /var/log/secure.\n2. Flag instances where non-administrative accounts execute interactive shells (/bin/bash, /bin/sh).\n3. Review auditd rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_3_e12669": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_3_e12669",
+      "content": "rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.\n\nMitigation:\n- Adhere strictly to the Principle of Least Privilege (PoLP).\n- Restrict sudoers permissions to specific, necessary utility arguments instead of ALL=(ALL:ALL) ALL.\n- Maintain immutable audit logging for root-level session executions.",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_0_cef93b": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_0_cef93b",
+      "content": "MITRE ATT&CK Technique T1110: Brute Force\nTactic: Credential Access (TA0006)\nSub-techniques:\n- T1110.001: Password Guessing (systematically guessing passwords for an account)\n- T1110.002: Password Cracking\n- T1110.003: Password Spraying (using a few common passwords against many accounts)\n- T1110.004: Credential Stuffing (using stolen credentials from other breaches)",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_1_7ac621": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_1_7ac621",
+      "content": "tial Stuffing (using stolen credentials from other breaches)\n\nDescription:\nAdversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained. Repeated authentication failures within a brief duration from a common IP address indicate automated password guessing or credential stuffing tools (e.g. Hydra, Medusa).",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_2_54df00": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_2_54df00",
+      "content": " guessing or credential stuffing tools (e.g. Hydra, Medusa).\n\nDetection Guidelines:\n1. Monitor authentication logs (such as /var/log/auth.log or Windows Event ID 4625).\n2. Establish thresholds for failed logon attempts (e.g., more than 5 failures within 2 minutes).\n3. Check for geographic or network velocity anomalies.\n4. Most crucially, verify if a sequence of failed authentications is immediately followed by an Event ID 4624 (Successful Logon) or SSH 'Accepted password', which confirms the attack successfully breached the credential.",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1110_Brute_Force.txt_chunk_3_302920": {
+      "id": "MITRE_T1110_Brute_Force.txt_chunk_3_302920",
+      "content": "ch confirms the attack successfully breached the credential.\n\nMitigation:\n- M1036 Account Use Policies: Enforce account lockout thresholds (e.g. 5 failed attempts locks for 15 minutes).\n- M1032 Multi-Factor Authentication: Require MFA on all externally exposed endpoints.\n- M1018 User Account Management: Disable root and default administrator logins over SSH.\n- M1037 Filter Network Traffic: Implement rate limiting and automatic IP banning with Fail2Ban or cloud security groups.",
+      "source_file": "MITRE_T1110_Brute_Force.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1110_Brute_Force.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_0_b2d8f6": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_0_b2d8f6",
+      "content": "NIST Special Publication 800-61 Revision 2: Computer Security Incident Handling Guide\nPhase 1: Preparation\nOrganizations must maintain log management infrastructures, forensic toolkits, and clear incident response communication channels.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_1_e28eeb": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_1_e28eeb",
+      "content": "oolkits, and clear incident response communication channels.\n\nPhase 2: Detection and Analysis\nSigns of an Incident:\n- Precursors: Network port scans, vulnerability scans, audit log alerts.\n- Indicators: High volume of failed authentications, unexpected file modifications, unauthorized privilege escalation, anomalous outbound connections.\nInvestigation Steps:\n1. Identify the scope of compromised accounts and hosts.\n2. Determine the attack vector (brute-force, unpatched web vulnerability, compromised credential).\n3. Validate evidence integrity by preserving original timestamps and cryptographic hashes.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_2_0b8475": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_2_0b8475",
+      "content": " by preserving original timestamps and cryptographic hashes.\n\nPhase 3: Containment, Eradication, and Recovery\n1. Short-Term Containment: Isolate the affected subnet or null-route malicious source IP addresses.\n2. Eradication: Terminate unauthorized background processes, delete uploaded web shells, revoke compromised SSH keys and API tokens.\n3. Recovery: Restore affected systems from clean backups, reset user credentials, and restore connectivity under enhanced monitoring.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "NIST_SP800_61_Incident_Guide.txt_chunk_3_629be6": {
+      "id": "NIST_SP800_61_Incident_Guide.txt_chunk_3_629be6",
+      "content": "entials, and restore connectivity under enhanced monitoring.\n\nPhase 4: Post-Incident Activity (Lessons Learned)\nConduct post-mortem analysis within two weeks. Update intrusion detection signatures and rules to prevent recurrence.",
+      "source_file": "NIST_SP800_61_Incident_Guide.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "NIST_SP800_61_Incident_Guide.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_0_d7d64d": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_0_d7d64d",
+      "content": "MITRE ATT&CK Technique T1548: Abuse Elevation Control Mechanism\nTactic: Privilege Escalation (TA0004), Defense Evasion (TA0005)\nSub-technique: T1548.003 - Sudo and Sudo Caching",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 0,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 0,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_1_62fc8c": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_1_62fc8c",
+      "content": "on (TA0005)\nSub-technique: T1548.003 - Sudo and Sudo Caching\n\nDescription:\nAdversaries may execute commands with elevated root privileges using sudo without requiring authorization, or exploit misconfigurations in the /etc/sudoers file (such as NOPASSWD or dangerous binaries like vi, bash, find, tar).",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 1,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 1,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_2_69bbc7": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_2_69bbc7",
+      "content": "as NOPASSWD or dangerous binaries like vi, bash, find, tar).\n\nDetection:\n1. Audit sudo execution events in /var/log/auth.log or /var/log/secure.\n2. Flag instances where non-administrative accounts execute interactive shells (/bin/bash, /bin/sh).\n3. Review auditd rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 2,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 2,
+        "category": "knowledge_base"
+      }
+    },
+    "MITRE_T1548_Privilege_Escalation.txt_chunk_3_a41b35": {
+      "id": "MITRE_T1548_Privilege_Escalation.txt_chunk_3_a41b35",
+      "content": "rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.\n\nMitigation:\n- Adhere strictly to the Principle of Least Privilege (PoLP).\n- Restrict sudoers permissions to specific, necessary utility arguments instead of ALL=(ALL:ALL) ALL.\n- Maintain immutable audit logging for root-level session executions.",
+      "source_file": "MITRE_T1548_Privilege_Escalation.txt",
+      "chunk_index": 3,
+      "category": "knowledge_base",
+      "metadata": {
+        "type": "standard",
+        "source": "MITRE_T1548_Privilege_Escalation.txt",
+        "chunk": 3,
+        "category": "knowledge_base"
+      }
+    }
+  }
+}

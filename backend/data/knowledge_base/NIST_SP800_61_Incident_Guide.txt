@@ -1,0 +1,20 @@
+NIST Special Publication 800-61 Revision 2: Computer Security Incident Handling Guide
+Phase 1: Preparation
+Organizations must maintain log management infrastructures, forensic toolkits, and clear incident response communication channels.
+
+Phase 2: Detection and Analysis
+Signs of an Incident:
+- Precursors: Network port scans, vulnerability scans, audit log alerts.
+- Indicators: High volume of failed authentications, unexpected file modifications, unauthorized privilege escalation, anomalous outbound connections.
+Investigation Steps:
+1. Identify the scope of compromised accounts and hosts.
+2. Determine the attack vector (brute-force, unpatched web vulnerability, compromised credential).
+3. Validate evidence integrity by preserving original timestamps and cryptographic hashes.
+
+Phase 3: Containment, Eradication, and Recovery
+1. Short-Term Containment: Isolate the affected subnet or null-route malicious source IP addresses.
+2. Eradication: Terminate unauthorized background processes, delete uploaded web shells, revoke compromised SSH keys and API tokens.
+3. Recovery: Restore affected systems from clean backups, reset user credentials, and restore connectivity under enhanced monitoring.
+
+Phase 4: Post-Incident Activity (Lessons Learned)
+Conduct post-mortem analysis within two weeks. Update intrusion detection signatures and rules to prevent recurrence.

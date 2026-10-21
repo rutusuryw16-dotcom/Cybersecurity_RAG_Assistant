@@ -1,0 +1,16 @@
+MITRE ATT&CK Technique T1548: Abuse Elevation Control Mechanism
+Tactic: Privilege Escalation (TA0004), Defense Evasion (TA0005)
+Sub-technique: T1548.003 - Sudo and Sudo Caching
+
+Description:
+Adversaries may execute commands with elevated root privileges using sudo without requiring authorization, or exploit misconfigurations in the /etc/sudoers file (such as NOPASSWD or dangerous binaries like vi, bash, find, tar).
+
+Detection:
+1. Audit sudo execution events in /var/log/auth.log or /var/log/secure.
+2. Flag instances where non-administrative accounts execute interactive shells (/bin/bash, /bin/sh).
+3. Review auditd rules monitoring writes to /etc/sudoers and /etc/sudoers.d/.
+
+Mitigation:
+- Adhere strictly to the Principle of Least Privilege (PoLP).
+- Restrict sudoers permissions to specific, necessary utility arguments instead of ALL=(ALL:ALL) ALL.
+- Maintain immutable audit logging for root-level session executions.

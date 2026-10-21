@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyber-rag-backend
+  namespace: default
+  labels:
+    app: cyber-soc-assistant
+    tier: backend
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: cyber-rag-backend
+  template:
+    metadata:
+      labels:
+        app: cyber-rag-backend
+    spec:
+      containers:
+      - name: backend
+        image: cybersoc/rag-backend:v1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+          name: http
+        envFrom:
+        - configMapRef:
+            name: cyber-rag-config
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+        volumeMounts:
+        - name: data-storage
+          mountPath: /app/data
+      volumes:
+      - name: data-storage
+        persistentVolumeClaim:
+          claimName: cyber-rag-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyber-rag-frontend
+  namespace: default
+  labels:
+    app: cyber-soc-assistant
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cyber-rag-frontend
+  template:
+    metadata:
+      labels:
+        app: cyber-rag-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: cybersoc/rag-frontend:v1.0
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
